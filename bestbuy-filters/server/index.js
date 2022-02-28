@@ -8,19 +8,19 @@ const AirFryerModel = require("./models/airfryer");
 app.use(express.json());
 
 mongoose.connect(
-    "mongodb+srv://bestbuy:bestbuy@bestbuybasicapp.uamcq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "mongodb+srv://bestbuy:bestbuy@bestbuybasicapp.uamcq.mongodb.net/bestbuybasic?retryWrites=true&w=majority",
     {
         useNewUrlParser: true,
     }
 );
 
 app.get('/', async (req, res) => {
-    const airfryer = new AirFryerModel({
+    const BestBuyBasicApp = new AirFryerModel({
         airFryerTitle:"Insignia Air Fryer",
         capacity: 5
     });
     try{
-        await airfryer.save();
+        await BestBuyBasicApp.save();
     }catch(err){
         console.log(err)
     }
